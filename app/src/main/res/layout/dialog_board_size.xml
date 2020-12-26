@@ -22,18 +22,18 @@
             android:id="@+id/rbEasy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Easy(4×2)" />
+            android:text="@string/rbEasy" />
 
         <RadioButton
-            android:id="@+id/rbMedium"
+            android:id="@+id/rbNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Medium(6×2)" />
+            android:text="@string/rbNormal" />
 
         <RadioButton
             android:id="@+id/rbHard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hard(12×2)" />
+            android:text="@string/rbHard" />
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

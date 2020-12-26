@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.mi_refresh -> {
                 if (drawGame.getNumMoves() > 0 && !drawGame.haveWonGame()) {
-                        showAlertDialog("Quit your current game?", null, View.OnClickListener {
+                        showAlertDialog(resources.getString(R.string.Quit), null, View.OnClickListener {
                         setupBoard()
                     })
                 } else {
@@ -81,13 +81,13 @@ class MainActivity : AppCompatActivity() {
         val radioGroupSize = boardSizeView.findViewById<RadioGroup>(R.id.radioGroupSize)
         when (boardSize) {
             BoardSize.EASY -> radioGroupSize.check(R.id.rbEasy)
-            BoardSize.MEDIUM -> radioGroupSize.check(R.id.rbMedium)
+            BoardSize.NORMAL -> radioGroupSize.check(R.id.rbNormal)
             BoardSize.HARD -> radioGroupSize.check(R.id.rbHard)
         }
-        showAlertDialog("Choose new size", boardSizeView, View.OnClickListener {
+        showAlertDialog(resources.getString(R.string.mi_new_size), boardSizeView, View.OnClickListener {
             boardSize = when (radioGroupSize.checkedRadioButtonId) {
                 R.id.rbEasy -> BoardSize.EASY
-                R.id.rbMedium -> BoardSize.MEDIUM
+                R.id.rbNormal -> BoardSize.NORMAL
                 else -> BoardSize.HARD
             }
 
@@ -99,8 +99,8 @@ class MainActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle(title)
             .setView(view)
-            .setNegativeButton("Cancel", null)
-            .setPositiveButton("OK") { _, _ ->
+            .setNegativeButton(resources.getString(R.string.Cancel), null)
+            .setPositiveButton(resources.getString(R.string.OK)) { _, _ ->
                 positiveClickListener.onClick(null)
             }.show()
     }
@@ -109,15 +109,15 @@ class MainActivity : AppCompatActivity() {
     private fun setupBoard() {
         when (boardSize) {
             BoardSize.EASY -> {
-                tvNumMoves.text = "Easy: 4x2"
+                tvNumMoves.text = "Easy"
                 tvNumPairs.text = "Pairs: 0/4"
             }
-            BoardSize.MEDIUM -> {
-                tvNumMoves.text = "Medium: 6x3"
+            BoardSize.NORMAL -> {
+                tvNumMoves.text = "Normol"
                 tvNumPairs.text = "Pairs: 0/9"
             }
             BoardSize.HARD -> {
-                tvNumMoves.text = "Hard: 6x4"
+                tvNumMoves.text = "Hard"
                 tvNumPairs.text = "Pairs: 0/12"
             }
         }
@@ -138,11 +138,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateGameWithFlip(position: Int) {
         if (drawGame.haveWonGame()){
-            Snackbar.make(clRoot,"You already won!",Snackbar.LENGTH_LONG).show()
+            Snackbar.make(clRoot,resources.getString(R.string.won),Snackbar.LENGTH_LONG).show()
             return
         }
         if(drawGame.isCardFaceUp(position)){
-            Snackbar.make(clRoot,"Invalid move",Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(clRoot,resources.getString(R.string.Move),Snackbar.LENGTH_SHORT).show()
             return
         }
           if( drawGame.flipCard(position)) {
@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
               tvNumPairs.setTextColor(color)
               tvNumPairs.text = "Pairs: ${drawGame.numPairsFound}/ ${boardSize.getNumPairs()}"
               if (drawGame.haveWonGame()){
-                  Snackbar.make(clRoot,"You won! Congratulation.",Snackbar.LENGTH_LONG).show()
+                  Snackbar.make(clRoot,resources.getString(R.string.Congratulation),Snackbar.LENGTH_LONG).show()
                   CommonConfetti.rainingConfetti(clRoot, intArrayOf(Color.RED,Color.BLUE,Color.GREEN)).oneShot()
               }
           }

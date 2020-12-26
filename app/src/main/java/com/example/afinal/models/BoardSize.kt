@@ -3,7 +3,7 @@ package com.example.afinal.models
 
 enum class BoardSize(val numCards: Int) {
     EASY(8),
-    MEDIUM(18),
+    NORMAL(18),
     HARD(24);
 
     companion object {
@@ -13,7 +13,7 @@ enum class BoardSize(val numCards: Int) {
     fun getWidth(): Int {
         return when (this) {
             EASY -> 2
-            MEDIUM -> 3
+            NORMAL -> 3
             HARD -> 4
         }
     }

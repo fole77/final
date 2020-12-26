@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Final</string>
+    <string name="tvNumMoves">Moves:</string>
+    <string name="tvNumPairs">Pairs:</string>
+    <string name="mi_new_size">Choose new size</string>
+    <string name="rbEasy">Easy</string>
+    <string name="rbNormal">Normal</string>
+    <string name="rbHard">Hard</string>
+    <string name="Quit">Quit your current game?</string>
+    <string name="Move">Invalid move</string>
+    <string name="won">You already won!</string>
+    <string name="Congratulation">You won! Congratulation!</string>
+    <string name="Cancel">Cancel</string>
+    <string name="OK">OK</string>
 </resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Final</string>
+    <string name="tvNumMoves">移动:</string>
+    <string name="tvNumPairs">配对:</string>
+    <string name="mi_new_size">选择模式</string>
+    <string name="rbEasy">简单</string>
+    <string name="rbNormal">普通</string>
+    <string name="rbHard">困难</string>
+    <string name="Quit">是否退出当前游戏？</string>
+    <string name="Move">无效移动</string>
+    <string name="won">You already won!</string>
+    <string name="Congratulation">你赢了！恭喜！</string>
+    <string name="Cancel">否</string>
+    <string name="OK">是</string>
+</resources>
