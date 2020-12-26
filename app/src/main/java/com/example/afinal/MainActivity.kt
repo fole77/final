@@ -1,6 +1,7 @@
 package com.example.afinal
 
 import android.animation.ArgbEvaluator
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.afinal.models.BoardSize
 import com.example.afinal.models.DrawGame
+import com.github.jinatonic.confetti.CommonConfetti
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
@@ -154,6 +156,7 @@ class MainActivity : AppCompatActivity() {
               tvNumPairs.text = "Pairs: ${drawGame.numPairsFound}/ ${boardSize.getNumPairs()}"
               if (drawGame.haveWonGame()){
                   Snackbar.make(clRoot,"You won! Congratulation.",Snackbar.LENGTH_LONG).show()
+                  CommonConfetti.rainingConfetti(clRoot, intArrayOf(Color.RED,Color.BLUE,Color.GREEN)).oneShot()
               }
           }
         tvNumMoves.text = "Moves: ${drawGame.getNumMoves()}"
