@@ -14,7 +14,6 @@ class DrawGame(private val boardSize: BoardSize) {
             val chosenImages =DEFAULT_ICONS.shuffled().take(boardSize.getNumPairs())
             val randomizedImages =(chosenImages + chosenImages).shuffled()
             cards = randomizedImages.map { GameCard(it) }
-
     }
 
     fun flipCard(position: Int): Boolean {

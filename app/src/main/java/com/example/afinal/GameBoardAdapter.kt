@@ -56,14 +56,10 @@ class GameBoardAdapter(
 
         fun bind(position: Int) {
             val gameCard = cards[position]
-            if (gameCard.isFaceUp) {
-                if (gameCard.imageUrl != null) {
-                } else {
-                    imageButton.setImageResource(gameCard.identifier)
-                }
-            } else {
-                imageButton.setImageResource(R.drawable.guyun)
-            }
+            imageButton.setImageResource(  if (gameCard.isFaceUp)
+                gameCard.identifier else  (R.drawable.zise)
+            )
+
             imageButton.alpha = if (gameCard.isMatched) .4f else 1f
             val colorStateList = if (gameCard.isMatched) ContextCompat.getColorStateList(context, R.color.color_gray) else null
             ViewCompat.setBackgroundTintList(imageButton, colorStateList)
