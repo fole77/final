@@ -2,6 +2,9 @@
     <string name="app_name">Final</string>
     <string name="tvNumMoves">Moves:</string>
     <string name="tvNumPairs">Pairs:</string>
+    <string name="tvNumPairs1">Pairs:0/4</string>
+    <string name="tvNumPairs2">Pairs:0/6</string>
+    <string name="tvNumPairs3">Pairs:0/12</string>
     <string name="mi_new_size">Choose new size</string>
     <string name="rbEasy">Easy</string>
     <string name="rbNormal">Normal</string>

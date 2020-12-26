@@ -109,16 +109,16 @@ class MainActivity : AppCompatActivity() {
     private fun setupBoard() {
         when (boardSize) {
             BoardSize.EASY -> {
-                tvNumMoves.text = "Easy"
-                tvNumPairs.text = "Pairs: 0/4"
+                tvNumMoves.text = resources.getString(R.string.rbEasy)
+                tvNumPairs.text = resources.getString(R.string.tvNumPairs1)
             }
             BoardSize.NORMAL -> {
-                tvNumMoves.text = "Normol"
-                tvNumPairs.text = "Pairs: 0/9"
+                tvNumMoves.text = resources.getString(R.string.rbNormal)
+                tvNumPairs.text = resources.getString(R.string.tvNumPairs2)
             }
             BoardSize.HARD -> {
-                tvNumMoves.text = "Hard"
-                tvNumPairs.text = "Pairs: 0/12"
+                tvNumMoves.text = resources.getString(R.string.rbHard)
+                tvNumPairs.text = resources.getString(R.string.tvNumPairs3)
             }
         }
         tvNumPairs.setTextColor(ContextCompat.getColor(this, R.color.color_progress_none))
@@ -153,13 +153,14 @@ class MainActivity : AppCompatActivity() {
                   ContextCompat.getColor(this,R.color.color_progress_full)
               ) as Int
               tvNumPairs.setTextColor(color)
-              tvNumPairs.text = "Pairs: ${drawGame.numPairsFound}/ ${boardSize.getNumPairs()}"
+              tvNumPairs.text = "${resources.getString(R.string.tvNumPairs)}${drawGame.numPairsFound}/ ${boardSize.getNumPairs()}"
               if (drawGame.haveWonGame()){
                   Snackbar.make(clRoot,resources.getString(R.string.Congratulation),Snackbar.LENGTH_LONG).show()
                   CommonConfetti.rainingConfetti(clRoot, intArrayOf(Color.RED,Color.BLUE,Color.GREEN)).oneShot()
               }
           }
-        tvNumMoves.text = "Moves: ${drawGame.getNumMoves()}"
+        tvNumMoves.text = " ${resources.getString(R.string.tvNumMoves)}${drawGame.getNumMoves()}"
+
             adapter.notifyDataSetChanged()
 
     }
