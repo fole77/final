@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical">        //为游戏卡创建视图
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

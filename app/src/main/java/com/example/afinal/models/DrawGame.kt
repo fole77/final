@@ -9,14 +9,13 @@ class DrawGame(private val boardSize: BoardSize) {
     private var numCardFlips = 0
     private var indexOfSingleSelectedCard: Int? =null
 
-    init {
-
+    init {   //随机匹配图片
             val chosenImages =DEFAULT_ICONS.shuffled().take(boardSize.getNumPairs())
             val randomizedImages =(chosenImages + chosenImages).shuffled()
             cards = randomizedImages.map { GameCard(it) }
     }
 
-    fun flipCard(position: Int): Boolean {
+    fun flipCard(position: Int): Boolean {     //点击翻转，翻转逻辑
         numCardFlips++
         val card = cards[position]
         var foundMatch = false
@@ -42,7 +41,7 @@ class DrawGame(private val boardSize: BoardSize) {
         return true
     }
 
-    private fun restoreCards() {
+    private fun restoreCards() {  //遍历持有卡片，将卡片翻转朝下
         for (card in cards) {
             if (!card.isMatched) {
                 card.isFaceUp= false
@@ -54,7 +53,7 @@ class DrawGame(private val boardSize: BoardSize) {
         return numPairsFound == boardSize.getNumPairs()
     }
 
-    fun isCardFaceUp(position: Int): Boolean {
+    fun isCardFaceUp(position: Int): Boolean {   //检查面朝向
         return cards[position].isFaceUp
     }
 
